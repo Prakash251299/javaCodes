@@ -1,0 +1,56 @@
+public class MyClass {
+    // static void swap(char a[],int x, int y){
+    //     char c = a[x];
+    //     a[x] = a[y];
+    //     a[y] = c;
+    // }
+    public static void main(String[] args) {
+        char words[] = {'3','3','2','4','5','6','6','5','4'};
+        int probableMidPos=0;
+        int matchFound = 0;
+        int singleCount = 0;
+        int i=0,j=words.length-1,k=j;
+        for(i=0;i<k;i++){
+            System.out.print("\n"+i+" ");
+            matchFound = 0;
+            for(j=k;j>i;j--){
+                if(words[j]==words[i]){
+                    // swap(words,i,j);
+                    // System.out.println("Found"+words[j]);
+                    char c = words[k];
+                    words[k] = words[j];
+                    words[j] = c;
+                    matchFound = 1;
+                    break;
+                }
+            }
+            if(matchFound==0){
+                System.out.println("not:"+words[i]);
+                if(singleCount==0){
+                    probableMidPos = i;
+                    singleCount = 1;
+                }
+                else{
+                    System.out.println("Pallindrome not possible");
+                    return;
+                }
+            }
+            else{
+                k--;
+            }
+            // k--;
+        }
+        if(singleCount!=1){
+            System.out.println(words);
+            return;
+        }
+        else{
+            for(j=probableMidPos;j<words.length/2;j++){
+                char c = words[j];
+                words[j] = words[j+1];
+                words[j+1] = c;
+            }
+            System.out.println(words);
+        }
+    }
+}
