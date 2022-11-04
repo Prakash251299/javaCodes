@@ -1,0 +1,20 @@
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+      HashMap<String,ArrayList<Integer>> map = new HashMap<String,ArrayList<Integer>>();//create a hashmap accepting 1d arraylist as value
+      ArrayList<ArrayList<Integer>> al = new ArrayList<ArrayList<Integer>>();//create a 2d arraylist
+      al.add(new ArrayList<Integer>());//added arraylist to 1d arraylist for initializing it as 2d arraylist
+      al.add(new ArrayList<Integer>());//2nd node added
+    //   adding elements to 2d arraylist
+      al.get(0).add(0);
+      al.get(0).add(1);
+      al.get(1).add(5);
+      al.get(1).add(6);
+    //   putting 2d arraylist as values of arraylist
+      map.put("theKey1", al.get(0));
+      map.put("theKey2", al.get(1));
+    //   getting the 2d arraylist as value of the keys of the hashmap
+      System.out.println(map.get("theKey1"));
+      System.out.println(map.get("theKey2"));
+    }
+}
